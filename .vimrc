@@ -1,4 +1,5 @@
 " start
+"---------------------------------------------------------
 filetype off
 filetype plugin indent off
 
@@ -22,11 +23,12 @@ set nocompatible
 
 " tab
 "-----------------------------------------------------------
-set tabstop=4
 set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set smartindent
 
-set shiftwidth=4
 set smarttab
 au! BufNewFile,BufRead *.twig :set filetype=htmldjango
 
@@ -55,7 +57,7 @@ function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
-function! s:my_tabline()  "{{{
+function! s:my_tabline()
   let s = ''
   for i in range(1, tabpagenr('$'))
     let bufnrs = tabpagebuflist(i)
@@ -72,7 +74,7 @@ function! s:my_tabline()  "{{{
   endfor
   let s .= '%#TabLineFill#%T%=%#TabLine#'
   return s
-endfunction "}}}
+endfunction
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
 
@@ -83,6 +85,8 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
+filetype plugin indent on
+
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'scrooloose/nerdtree'
@@ -92,6 +96,14 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'DirDiff.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'xoria256.vim'
+NeoBundleLazy 'scrooloose/syntastic', {
+            \ "autoload": {
+            \   "filetypes": ["python", "php", "ruby"]
+            \ }}
+NeoBundleLazy 'davidhalter/jedi-vim', {
+            \ "autoload": {
+            \   "filetypes": ["python"]
+            \ }}
 
 " NERD-tree
 "---------------------------------------------------------
@@ -125,6 +137,9 @@ noremap uo <ESC>:Unite -vertical -winwidth=40 outline<Return>
 set t_Co=256
 colorscheme xoria256
 
-" option
+" python setting
 "-------------------------------------------------------------------------
-filetype plugin indent on
+autocmd FileType python setl autoindent
+autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType python let g:syntastic_python_checkers = ['pyflakes', 'pep8']
