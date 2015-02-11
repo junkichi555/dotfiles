@@ -51,6 +51,12 @@ colorscheme xoria256
 " ---------------------------------------------------
 " NERDTree setting
 " ---------------------------------------------------
+let NERDChristmasTree = 1
+let g:NERDTreeDirArrows = 0
+
+nmap <Tab>      gt
+nmap <S-Tab>    gT
+
 autocmd vimenter * if !argc() | call s:OnlyTree() | endif
 function! s:OnlyTree()
     NERDTree
