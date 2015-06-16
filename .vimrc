@@ -4,7 +4,6 @@
 set number
 set list
 set listchars=tab:>_,trail:_,nbsp:%,extends:>,precedes:<
-set cursorline
 set incsearch
 set hlsearch
 set showmatch
@@ -34,7 +33,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'xoria256.vim'
 
@@ -54,7 +52,6 @@ colorscheme xoria256
 " ---------------------------------------------------
 let NERDChristmasTree = 1
 let g:NERDTreeDirArrows = 0
-let NERDTreeIgnore = [ '__pycache__$']
 
 nmap <Tab>      gt
 nmap <S-Tab>    gT
@@ -65,6 +62,3 @@ function! s:OnlyTree()
     wincmd l
     q
 endfunction
-
-" ---------------------------------------------------
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
