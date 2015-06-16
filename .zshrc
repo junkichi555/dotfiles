@@ -4,6 +4,17 @@
 autoload colors
 colors
 
+case "${OSTYPE}" in
+freebsd*|darwin*)
+    alias ls="ls -G -w"
+    ;;
+linux*)
+    alias ls="ls --color"
+    ;;
+solaris*)
+    alias ls='gls -F --color=auto '
+esac
+
 # --------------------------------------------------------
 # for prompt
 # --------------------------------------------------------
