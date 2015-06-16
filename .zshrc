@@ -7,12 +7,12 @@ colors
 # --------------------------------------------------------
 # for prompt
 # --------------------------------------------------------
-PROMPT=""
+PROMPT="%{${fg[magenta]}%}$(echo ${USER}@Local) "
 PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
 SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-RPROMPT="%B%{${fg[red]}%}%/%%%{${reset_color}%}%b "
+RPROMPT="%B%{${fg[red]}%}%//.%{${reset_color}%}%b "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[magenta]}%}$(echo ${USER}@${HOST%%.*}) ${PROMPT}"
+    PROMPT="%{${fg[magenta]}%}$(echo ${USER}@${HOST%%.*}) "
 
 # --------------------------------------------------------
 # for key mapping to use command history
