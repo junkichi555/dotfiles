@@ -25,6 +25,33 @@ RPROMPT="%B%{${fg[red]}%}%//.%{${reset_color}%}%b "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
     PROMPT="%{${fg[magenta]}%}$(echo ${USER}@${HOST%%.*}) "
 
+
+# --------------------------------------------------------
+# for utility
+# --------------------------------------------------------
+#
+# auto change directory
+setopt auto_cd
+
+# auto directory pushd that you can dirs list by cd -[tab]
+setopt auto_pushd
+setopt pushd_ignore_dups
+
+# command correct edition before each completion attempt
+setopt correct
+
+# compacked complete list display
+setopt list_packed
+
+# put slash on tail of path when you use auto completion
+setopt noautoremoveslash
+
+# no beep sound when complete list displayed
+setopt nolistbeep
+
+# vi like keybind
+bindkey -v
+
 # --------------------------------------------------------
 # for key mapping to use command history
 # --------------------------------------------------------
@@ -64,28 +91,3 @@ alias xmlgrep="find ./ -name '*.xml' | xargs grep --color=auto"
 alias ymlgrep="find ./ -name '*.yml' | xargs grep --color=auto"
 alias twiggrep="find ./ -name '*.twig' | xargs grep --color=auto"
 alias txtgrep="find ./ -name '*.txt' | xargs grep --color=auto"
-
-# --------------------------------------------------------
-# for utility
-# --------------------------------------------------------
-# auto change directory
-setopt auto_cd
-
-# auto directory pushd that you can dirs list by cd -[tab]
-setopt auto_pushd
-setopt pushd_ignore_dups
-
-# command correct edition before each completion attempt
-setopt correct
-
-# compacked complete list display
-setopt list_packed
-
-# put slash on tail of path when you use auto completion
-setopt noautoremoveslash
-
-# no beep sound when complete list displayed
-setopt nolistbeep
-
-# vi like keybind
-bindkey -v
