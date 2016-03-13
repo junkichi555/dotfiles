@@ -25,7 +25,6 @@ RPROMPT="%B%{${fg[red]}%}%//.%{${reset_color}%}%b "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
     PROMPT="%{${fg[magenta]}%}$(echo ${USER}@${HOST%%.*}) "
 
-
 # --------------------------------------------------------
 # for utility
 # --------------------------------------------------------
@@ -36,9 +35,6 @@ setopt auto_cd
 # auto directory pushd that you can dirs list by cd -[tab]
 setopt auto_pushd
 setopt pushd_ignore_dups
-
-# command correct edition before each completion attempt
-setopt correct
 
 # compacked complete list display
 setopt list_packed
@@ -80,6 +76,7 @@ compinit
 # for aliases
 # --------------------------------------------------------
 alias NT="vim -c NERDTree"
+
 alias wildgrep="find ./ -name '*' | xargs grep --color=auto -n"
 alias pygrep="find ./ -name '*.py' | xargs grep --color=auto -n"
 alias rbgrep="find ./ -name '*.rb' | xargs grep --color=auto -n"
@@ -91,3 +88,18 @@ alias xmlgrep="find ./ -name '*.xml' | xargs grep --color=auto -n"
 alias ymlgrep="find ./ -name '*.yml' | xargs grep --color=auto -n"
 alias twiggrep="find ./ -name '*.twig' | xargs grep --color=auto -n"
 alias txtgrep="find ./ -name '*.txt' | xargs grep --color=auto -n"
+
+alias mysql="mysql -u matsuo -p"
+
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+
+# --------------------------------------------------------
+# for peco
+# --------------------------------------------------------
+bindkey '^xv'  peco-file-vim
+bindkey '^xl'  peco-file-less
+bindkey '^xc'  peco-file-cd
+bindkey '^xr'  peco-history
+bindkey '^xgv' peco-git-vim
+bindkey '^xgl' peco-git-less
+bindkey '^xp'  peco-ps
