@@ -27,12 +27,12 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="%{${fg[magenta]}%}$(echo ${USER}@Local) %1(v|%F{white}%1v%f |)"
-PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-RPROMPT="%B%{${fg[red]}%}%//.%{${reset_color}%}%b "
+PROMPT="%{${fg[yellow]}%}$(echo ${USER}@Local) %1(v|%F{white}%1v%f |)"
+PROMPT2="%B%{${fg[white]}%}%_#%{${reset_color}%}%b "
+SPROMPT="%B%{${fg[white]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+RPROMPT="%B%{${fg[white]}%}%//.%{${reset_color}%}%b "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[magenta]}%}$(echo ${USER}@${HOST%%.*}) %1(v|%F{white}%1v%f |)"
+    PROMPT="%{${fg[yellow]}%}$(echo ${USER}@${HOST%%.*}~$) %1(v|%F{white}%1v%f |)"
 
 # --------------------------------------------------------
 # for utility
