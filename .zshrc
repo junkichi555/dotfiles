@@ -100,8 +100,6 @@ alias txtgrep="find ./ -name '*.txt' | xargs grep --color=auto -n"
 
 alias mysql="mysql -u matsuo -p"
 
-alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
-
 # --------------------------------------------------------
 # for peco
 # --------------------------------------------------------
