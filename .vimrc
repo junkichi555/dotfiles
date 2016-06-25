@@ -64,3 +64,18 @@ function! s:OnlyTree()
     wincmd l
     q
 endfunction
+
+" ---------------------------------------------------
+" key bind
+" ---------------------------------------------------
+nmap fn ]m
+nmap fp [m
+
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap s> <C-w>>
+nnoremap s< <C-w><
+nnoremap s+ <C-w>+
+nnoremap s- <C-w>-
