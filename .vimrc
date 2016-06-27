@@ -49,6 +49,8 @@ syntax enable
 set t_Co=256
 colorscheme xoria256
 
+au! BufNewFile,BufRead *.twig :set filetype=htmldjango
+
 " ---------------------------------------------------
 " NERDTree setting
 " ---------------------------------------------------
