@@ -18,21 +18,12 @@ esac
 # --------------------------------------------------------
 # for prompt
 # --------------------------------------------------------
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '[%b]'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-
-PROMPT="%{${fg[yellow]}%}$(echo ${USER}@Local) %1(v|%F{white}%1v%f |)"
+PROMPT="%{${fg[yellow]}%}$(echo ${USER}@Local) "
 PROMPT2="%B%{${fg[white]}%}%_#%{${reset_color}%}%b "
 SPROMPT="%B%{${fg[white]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
 RPROMPT="%B%{${fg[white]}%}%//.%{${reset_color}%}%b "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[yellow]}%}$(echo ${USER}@${HOST%%.*}~$) %1(v|%F{white}%1v%f |)"
+    PROMPT="%{${fg[yellow]}%}$(echo ${USER}@${HOST%%.*}~$) "
 
 # --------------------------------------------------------
 # for utility
