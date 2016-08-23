@@ -35,6 +35,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'xoria256.vim'
 
@@ -81,3 +82,5 @@ nnoremap s> <C-w>>
 nnoremap s< <C-w><
 nnoremap s+ <C-w>+
 nnoremap s- <C-w>-
+
+let g:syntastic_python_checkers = ["flake8"]
